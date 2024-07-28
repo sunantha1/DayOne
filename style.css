@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans+Thai:wght@100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Mali', sans-serif;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #ff8fab;
+    font-family: cursive;
+    text-shadow: #fb3d7f 2px 2px;
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 3cm;
+    color: #fdfdfd;
+    margin: 15px 0;
+  }
+  
+  .btn-group {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  
+  button {
+    position: absolute;  
+    min-width: 340px;
+    height: inherit;
+    color: #fb3d7f;
+    font-size: 0.5cm;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px;
+    border: 2px solid;
+    font-size: 0.6cm;
+    transition: 0.3s;
+    border-radius: 40px;
+    padding: 10px;
+  }
+  
+  .yes-btn {
+    left: 50%;
+    transform: translateX(calc(-100% - 1rem));
+    z-index: 1;
+    font-size: 2.5cm;
+  }
+  
+  .no-btn {
+    left: calc(50% + 1rem);
+    transition: all 0.2s ease;
+    z-index: 2;
+    font-size: 2.5cm;
+  }
+  
+  button:nth-child(2) {
+    background-color: white;
+    color: #e94d58;
+  }
+  
+  @keyframes revealEnvelope {
+    0% {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .envelope {
+    display: none;
+    position: absolute;
+    top: 30%;
+    left: 63%;
+    transform: translate(-25%, -25%); 
+    width: 200px;
+    height: 100px;
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    animation: revealEnvelope 1s forwards;
+    font-size: 1cm;
+  }
+  
+  

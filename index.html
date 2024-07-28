@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="container" id="container">
+          <h2 class="question">ไปกินชาบูกันไม</h2>
+          <div class="btn-group">
+            <button class="yes-btn">ไป</button>
+            <button class="no-btn">ไม่ไป</button>
+          </div>
+          <div class="envelope"><p> Yes !!!" </p> </div>
+        </div>
+      </div>
+      
+</body>
+</html>
+<script>
+    const container = document.getElementById("container");
+const wrapper = document.querySelector(".wrapper");
+const question = document.querySelector(".question");
+const yesbtn = document.querySelector(".yes-btn"); 
+const nobtn = document.querySelector(".no-btn"); 
+const envelope = document.querySelector(".envelope");
+
+
+yesbtn.addEventListener("click", () => {
+  question.innerHTML = "ไปกันเลย <3 "
+  envelope.style.display = "block"; });
+
+function getRandomNumber(min, max) {
+  const randomNumber = Math.floor(Math.random() * (max - min + 20)) + min;
+  return randomNumber;
+}
+
+nobtn.addEventListener("click", () => {
+  const containerHeight = container.getBoundingClientRect().height;
+  const containerWidth = container.getBoundingClientRect().width;
+
+  const btnHeight = nobtn.getBoundingClientRect().height;
+  const btnWidth = nobtn.getBoundingClientRect().width;
+
+  const newTop = getRandomNumber(0, containerHeight - btnHeight);
+  const newLeft = getRandomNumber(0, containerWidth - btnWidth);
+
+  nobtn.style.top = newTop + "px";
+  nobtn.style.left = newLeft + "px";
+});
+
+</script>
