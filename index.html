@@ -5,49 +5,103 @@
 </head>
 <body>
 
-    <div class="wrapper">
+    <!-- <div class="wrapper">
         <div class="container" id="container">
-          <h2 class="question">ไปกินชาบูกันไม</h2>
+          <h2 class="question">will you be my valentine ?</h2>
           <div class="btn-group">
             <button class="yes-btn">ไป</button>
             <button class="no-btn">ไม่ไป</button>
           </div>
           <div class="envelope"><p> Yes !!!" </p> </div>
         </div>
-      </div>
-      
+      </div> -->
+      <body>
+        <div class="container">
+            <h1>Will you be my Valentine?</h1>
+            <div class="buttons">
+                <button id="yesButton">Yes</button>
+                <button id="noButton">No</button>
+            </div>
+        </div>
+    </body>
 </body>
 </html>
 <script>
-    const container = document.getElementById("container");
-const wrapper = document.querySelector(".wrapper");
-const question = document.querySelector(".question");
-const yesbtn = document.querySelector(".yes-btn"); 
-const nobtn = document.querySelector(".no-btn"); 
-const envelope = document.querySelector(".envelope");
+//     const container = document.getElementById("container");
+// const wrapper = document.querySelector(".wrapper");
+// const question = document.querySelector(".question");
+// const yesbtn = document.querySelector(".yes-btn"); 
+// const nobtn = document.querySelector(".no-btn"); 
+// const envelope = document.querySelector(".envelope");
 
 
-yesbtn.addEventListener("click", () => {
-  question.innerHTML = "ไปกันเลย <3 "
-  envelope.style.display = "block"; });
+// yesbtn.addEventListener("click", () => {
+//   question.innerHTML = "ไปกันเลย <3 "
+//   envelope.style.display = "block"; });
 
-function getRandomNumber(min, max) {
-  const randomNumber = Math.floor(Math.random() * (max - min + 20)) + min;
-  return randomNumber;
-}
+// function getRandomNumber(min, max) {
+//   const randomNumber = Math.floor(Math.random() * (max - min + 20)) + min;
+//   return randomNumber;
+// }
 
-nobtn.addEventListener("click", () => {
-  const containerHeight = container.getBoundingClientRect().height;
-  const containerWidth = container.getBoundingClientRect().width;
+// nobtn.addEventListener("click", () => {
+//   const containerHeight = container.getBoundingClientRect().height;
+//   const containerWidth = container.getBoundingClientRect().width;
 
-  const btnHeight = nobtn.getBoundingClientRect().height;
-  const btnWidth = nobtn.getBoundingClientRect().width;
+//   const btnHeight = nobtn.getBoundingClientRect().height;
+//   const btnWidth = nobtn.getBoundingClientRect().width;
 
-  const newTop = getRandomNumber(0, containerHeight - btnHeight);
-  const newLeft = getRandomNumber(0, containerWidth - btnWidth);
+//   const newTop = getRandomNumber(0, containerHeight - btnHeight);
+//   const newLeft = getRandomNumber(0, containerWidth - btnWidth);
 
-  nobtn.style.top = newTop + "px";
-  nobtn.style.left = newLeft + "px";
+//   nobtn.style.top = newTop + "px";
+//   nobtn.style.left = newLeft + "px";
+// });
+const yesButton = document.getElementById('yesButton');
+const noButton = document.getElementById('noButton');
+const container = document.querySelector('.container');
+
+// รายการคำพูดที่ปุ่ม "No" จะเปลี่ยนไปเรื่อยๆ
+const noButtonTexts = [
+    "Are you sure?",
+    "Really sure?",
+    "Think again!",
+    "Last chance!",
+    "Surely not?",
+    "You might regret this!",
+    "Give it another thought!",
+    "Are you absolutely certain?",
+    "This could be a mistake!",
+    "Have a heart!",
+    "Don't be so cold!",
+    "Change of heart?",
+    "Wouldn't you reconsider?",
+    "Is that your final answer?",
+    "You're breaking my heart ;("
+];
+
+let clickCount = 0;
+
+noButton.addEventListener('click', () => {
+    // เพิ่มขนาดปุ่ม "Yes" ทุกครั้งที่กดปุ่ม "No"
+    const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+    yesButton.style.fontSize = `${currentSize + 15}px`;
+    const currentSize2 = parseFloat(window.getComputedStyle(noButton).fontSize);
+    noButton.style.fontSize = `${currentSize2 - 10}px`;
+    // เปลี่ยนข้อความในปุ่ม "No"
+    if (clickCount < noButtonTexts.length) {
+        noButton.textContent = noButtonTexts[clickCount];
+        clickCount++;
+    } else {
+        // ถ้าคลิกเกินจำนวนคำพูดในอาร์เรย์ ให้วนกลับไปที่คำพูดแรก
+        clickCount = 0;
+        noButton.textContent = noButtonTexts[clickCount];
+    }
 });
-
+yesButton.addEventListener('click', () => {
+    // แสดงข้อความดีใจและซ่อนปุ่ม
+    container.innerHTML = `
+        <h1>Yay! You made my day! 💖</h1>
+        <p>I'm so happy you said YES!</p>`
+});
 </script>
