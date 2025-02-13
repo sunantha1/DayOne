@@ -114,6 +114,7 @@
 
 h1 {
     color: #e74c3c;
+    font-size: 4em;
 }
 
 .buttons {
@@ -122,7 +123,7 @@ h1 {
 
 button {
     padding: 5px 5px;
-    font-size: 16px;
+    font-size: 3em;
     border: none;
     border-radius: 5px;
     cursor: pointer;
